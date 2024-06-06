@@ -66,7 +66,10 @@ contract Dappazon {
         Order memory order = Order(block.timestamp, item);
 
         // Save order
+        orderCount[msg.sender] += 1;
+        orders[msg.sender][orderCount[msg.sender]] = order;
 
         // Reduce stock
+        items[_id].stock = item.stock - 1;
     }
 }
