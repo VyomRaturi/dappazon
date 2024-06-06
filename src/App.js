@@ -13,6 +13,22 @@ import Dappazon from './abis/Dappazon.json'
 import config from './config.json'
 
 function App() {
+  const [provider, setProvider] = useState(null)
+  const [dappazon, setDappazon] = useState(null)
+
+  const [account, setAccount] = useState(null)
+
+  const [electronics, setElectronics] = useState(null)
+  const [clothing, setClothing] = useState(null)
+  const [toys, setToys] = useState(null)
+
+  const [item, setItem] = useState({})
+  const [toggle, setToggle] = useState(false)
+
+  const loadBlockchainData = async () => {
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+    const account = ethers.utils.getAddress(accounts[0])
+  }
 
   return (
     <div>
