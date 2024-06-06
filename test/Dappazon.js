@@ -59,4 +59,24 @@ describe("Dappazon", () => {
     })
   })
 
+
+  describe("Buying", () => {
+    let transaction
+
+    beforeEach(async () => {
+      // List a item
+      transaction = await dappazon.connect(deployer).list(ID, NAME, CATEGORY, IMAGE, COST, RATING, STOCK)
+      await transaction.wait()
+
+      // Buy a item
+      transaction = await dappazon.connect(buyer).buy(ID, { value: COST })
+      await transaction.wait()
+    })
+
+    it("Updates the contract balance", async () => {
+      const result = await ethers.provider.getBalance(dappazon.address)
+      expect(result).to.equal(COST)
+    })
+  })
+
 })

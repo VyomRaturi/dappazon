@@ -50,4 +50,6 @@ contract Dappazon {
 
         emit List(_name, _cost, _stock);
     }
+
+    function buy(uint256 _id) public payable {}
 }
