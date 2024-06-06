@@ -26,9 +26,19 @@ function App() {
   const [toggle, setToggle] = useState(false)
 
   const loadBlockchainData = async () => {
-    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-    const account = ethers.utils.getAddress(accounts[0])
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+    setProvider(provider)
+
+    const network = await provider.getNetwork()
+
+    const dappazon = new ethers.Contract(config[network.chainId].dappazon.address, Dappazon, provider)
+    setDappazon(dappazon)
+
   }
+
+  useEffect(() => {
+    loadBlockchainData()
+  }, [])
 
   return (
     <div>
