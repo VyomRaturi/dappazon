@@ -14,7 +14,7 @@ contract Dappazon {
         uint256 stock;
     }
 
-    mapping(uint256 => Item) items;
+    mapping(uint256 => Item) public items;
 
     constructor() {
         owner = msg.sender;
