@@ -60,7 +60,15 @@ function App() {
 
       <Navigation account={account} setAccount={setAccount} />
 
-      <h2>Welcome to Dappazon</h2>
+      <h2>Dappazon Best Sellers</h2>
+
+      {electronics && clothing && toys && (
+        <>
+          <Section title={"Clothing & Jewelry"} items={clothing} />
+          <Section title={"Electronics & Gadgets"} items={electronics} />
+          <Section title={"Toys & Gaming"} items={toys} />
+        </>
+      )}
 
     </div>
   );
