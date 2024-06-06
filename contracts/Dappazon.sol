@@ -14,6 +14,8 @@ contract Dappazon {
         uint256 stock;
     }
 
+    mapping(uint256 => Item) items;
+
     constructor() {
         owner = msg.sender;
     }
@@ -26,5 +28,17 @@ contract Dappazon {
         uint256 _cost,
         uint256 _rating,
         uint256 _stock
-    ) {}
+    ) public {
+        Item memory item = Item(
+            _id,
+            _name,
+            _category,
+            _image,
+            _cost,
+            _rating,
+            _stock
+        );
+
+        items[_id] = item;
+    }
 }
