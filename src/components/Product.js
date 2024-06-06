@@ -106,7 +106,6 @@ const Product = ({ item, provider, account, dappazon, togglePop }) => {
           )}
         </div>
 
-
         <button onClick={togglePop} className="product__close">
           <img src={close} alt="Close" />
         </button>
