@@ -25,6 +25,8 @@ function App() {
   const [item, setItem] = useState({})
   const [toggle, setToggle] = useState(false)
 
+  const togglePop = () => { }
+
   const loadBlockchainData = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
     setProvider(provider)
@@ -64,9 +66,9 @@ function App() {
 
       {electronics && clothing && toys && (
         <>
-          <Section title={"Clothing & Jewelry"} items={clothing} />
-          <Section title={"Electronics & Gadgets"} items={electronics} />
-          <Section title={"Toys & Gaming"} items={toys} />
+          <Section title={"Clothing & Jewelry"} items={clothing} togglePop={togglePop} />
+          <Section title={"Electronics & Gadgets"} items={electronics} togglePop={togglePop} />
+          <Section title={"Toys & Gaming"} items={toys} togglePop={togglePop} />
         </>
       )}
 
