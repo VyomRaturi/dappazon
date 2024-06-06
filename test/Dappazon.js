@@ -89,6 +89,10 @@ describe("Dappazon", () => {
       const result = await ethers.provider.getBalance(dappazon.address)
       expect(result).to.equal(COST)
     })
+
+    it("Emits Buy event", () => {
+      expect(transaction).to.emit(dappazon, "Buy")
+    })
   })
 
 })
