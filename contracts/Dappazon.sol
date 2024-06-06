@@ -14,6 +14,11 @@ contract Dappazon {
         uint256 stock;
     }
 
+    struct Order {
+        uint256 time;
+        Item item;
+    }
+
     mapping(uint256 => Item) public items;
 
     event List(string name, uint256 cost, uint256 quantity);
