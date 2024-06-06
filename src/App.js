@@ -34,6 +34,13 @@ function App() {
     const dappazon = new ethers.Contract(config[network.chainId].dappazon.address, Dappazon, provider)
     setDappazon(dappazon)
 
+    const items = []
+
+    for (var i = 0; i < 9; i++) {
+      const item = await dappazon.items(i + 1)
+      items.push(item)
+    }
+
   }
 
   useEffect(() => {
