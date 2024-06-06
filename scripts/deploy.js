@@ -12,6 +12,15 @@ const tokens = (n) => {
 }
 
 async function main() {
+  // Setup accounts
+  const [deployer] = await ethers.getSigners()
+
+  // Deploy Dappazon
+  const Dappazon = await hre.ethers.getContractFactory("Dappazon")
+  const dappazon = await Dappazon.deploy()
+  await dappazon.deployed()
+
+  console.log(`Deployed Dappazon Contract at: ${dappazon.address}\n`)
 
 }
 
